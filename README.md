@@ -1,22 +1,19 @@
-Java based nmrML
+Java based nmrML converter
 =======
+
+See https://github.com/nmrML/nmrML/tree/master/tools/Parser_and_Converters/Java/converter for more information about this tool.
 
 ## Base Docker Image
 
 #### Installation
 
-Requirements: * a recent Linux OS that support Docker (see https://www.docker.com/)
+Requirements:
+   * a recent Linux OS that support Docker (see https://www.docker.com/)
 
 1. Install [Docker](https://www.docker.com/).
 2. Build the Docker image
 ```
 $ docker build -t nmrmlconv .
-```
-
-or
-
-```
-$ sh ./build
 ```
 
 ### Usage
