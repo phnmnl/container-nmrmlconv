@@ -1,41 +1,46 @@
-# cf https://github.com/dockerfile/ubuntu / https://github.com/dockerfile/java
-FROM ubuntu:14.04
+FROM ubuntu:trusty
 
-# Install.
-RUN \
-  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
-  apt-get update && \
-  apt-get -y upgrade && \
-  apt-get install -y build-essential && \
-  apt-get install -y software-properties-common && \
-  apt-get install -y byobu curl git htop man unzip vim wget && \
-  rm -rf /var/lib/apt/lists/*
+MAINTAINER Kristian Peters <kpeters@ipb-halle.de>
 
-# Add files.
-ADD root/.bashrc /root/.bashrc
-ADD root/.gitconfig /root/.gitconfig
-ADD root/.scripts /root/.scripts
+LABEL Description="Install nmrML in Docker."
 
-# Install Java.
-RUN \
-  echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
-  add-apt-repository -y ppa:webupd8team/java && \
-  apt-get update && \
-  apt-get install -y oracle-java7-installer && \
-  rm -rf /var/lib/apt/lists/* && \
-  rm -rf /var/cache/oracle-jdk7-installer
+# Update & upgrade sources
+RUN apt-get -y update
+RUN apt-get -y dist-upgrade
 
-# Define working directory.
+# Install mandatory packages
+RUN apt-get -y install build-essential software-properties-common
+RUN apt-get install -y byobu curl git htop man unzip vim wget
+
+# Install Java
+RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
+#RUN add-apt-repository -y ppa:webupd8team/java
+#RUN apt-get -y update
+#RUN apt-get -y install oracle-java7-installer
+RUN apt-get -y install openjdk-7-jdk openjdk-7-jre
+
+# Clean up
+RUN apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /var/cache/oracle-jdk7-installer /tmp/* /var/tmp/*
+
+# Clone nmrML github repo
+WORKDIR /usr/src
+RUN git clone https://github.com/nmrML/nmrML
+
+# Install nmrML converter
+WORKDIR /usr/src/nmrML/tools/Parser_and_Converters/Java/converter
+RUN install -m755 bin/nmrMLcreate /usr/local/bin
+RUN install -m755 bin/nmrMLproc /usr/local/bin
+ADD nmrMLconv.sh /usr/local/bin/nmrMLconv
+RUN mkdir /usr/local/share/nmrML
+RUN install -m755 bin/converter.jar /usr/local/share/nmrML/
+
+# Set JAVA_HOME
+#ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
+#ENV JAVA_HOME /usr/lib/jvm/default-java
+
+# Define data directory
+RUN mkdir /data
 WORKDIR /data
-
-# Define commonly used JAVA_HOME variable
-
-ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
-
-ADD bin/converter.jar /usr/local/bin/converter.jar
-ADD bin/nmrMLconv /usr/local/bin/nmrMLconv
-
-RUN chmod 755 /usr/local/bin/nmrMLconv
 
 ENTRYPOINT ["sh","/usr/local/bin/nmrMLconv"]
 
