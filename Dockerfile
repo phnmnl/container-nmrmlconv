@@ -1,8 +1,8 @@
 FROM ubuntu:trusty
 
-MAINTAINER Kristian Peters <kpeters@ipb-halle.de>
+MAINTAINER PhenoMeNal-H2020 Project <phenomenal-h2020-users@googlegroups.com>
 
-LABEL Description="Install nmrML in Docker."
+LABEL Description="Convert NMR-RAW vendor files to nmrML."
 
 
 
