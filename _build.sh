@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Name
-NAME="nmrml"
+NAME="phnmnl/nmrmlconv"
 
 # CPU options
 #CPU_SHARES="--cpu-shares=8"
@@ -10,5 +10,5 @@ NAME="nmrml"
 #MEM="--memory=24g"
 
 # Build docker
-docker build --rm=true $CPU_SHARES $CPU_SETS $CPU_MEMS $MEM --tag=$NAME .
+docker build $CPU_SHARES $CPU_SETS $CPU_MEMS $MEM --tag=$NAME .
 

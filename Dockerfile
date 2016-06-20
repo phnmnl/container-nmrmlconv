@@ -28,7 +28,6 @@ RUN git clone https://github.com/nmrML/nmrML
 WORKDIR /usr/src/nmrML/tools/Parser_and_Converters/Java/converter
 RUN install -m755 bin/nmrMLcreate /usr/local/bin
 RUN install -m755 bin/nmrMLproc /usr/local/bin
-ADD nmrMLconv.sh /usr/local/bin/nmrMLconv
 RUN mkdir /usr/local/share/nmrML
 RUN install -m755 bin/converter.jar /usr/local/share/nmrML/
 
@@ -36,5 +35,6 @@ RUN install -m755 bin/converter.jar /usr/local/share/nmrML/
 RUN mkdir /data
 WORKDIR /data
 
-ENTRYPOINT ["sh","/usr/local/bin/nmrMLconv"]
+ENTRYPOINT [ "java", "-cp", "./", "-jar", "/usr/local/share/nmrML/converter.jar" ]
+
 
