@@ -19,5 +19,5 @@ This examples uses one of the RAW files included in MTBLS1, which you get when y
 
 ## Galaxy usage
 
-A rudimentary Galaxy node description is included as `nmrmlconv.xml` will be added soon. 
+A rudimentary Galaxy node description is included as `nmrmlconv.xml`.
 
