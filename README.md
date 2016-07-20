@@ -6,6 +6,11 @@
 
 `docker build --tag="phnmnl/nmrmlconv:latest" .`
 
+Under macOS, you may encounter a `no space left on device` error, in which case you will have to create a docker machine with enough memory:
+```bash
+docker-machine create -d virtualbox --virtualbox-memory 2048 my_new_docker_machine
+```
+
 ## Using the Docker image
 
 This examples uses one of the RAW files included in MTBLS1, which you get when you clone the [nmrML-github repository](https://github.com/nmrML/nmrML/) to /usr/src.
