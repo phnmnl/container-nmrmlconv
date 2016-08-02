@@ -6,19 +6,10 @@ LABEL Description="Convert NMR-RAW vendor files to nmrML."
 
 
 
-# Update & upgrade sources
-RUN apt-get -y update
-RUN apt-get -y dist-upgrade
-
-# Install mandatory packages
-RUN apt-get -y install build-essential software-properties-common
-RUN apt-get install -y byobu curl git htop man unzip vim wget
-
-# Install Java
-RUN apt-get -y install openjdk-7-jdk openjdk-7-jre
-
-# Clean up
-RUN apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /var/cache/oracle-jdk7-installer /tmp/* /var/tmp/*
+# Update, install, clean up
+RUN apt-get -y update &&  apt-get -y install --no-install-recommends build-essential software-properties-common byobu \
+curl git htop man unzip vim wget openjdk-7-jdk openjdk-7-jre && \
+apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /var/cache/oracle-jdk7-installer /tmp/* /var/tmp/*
 
 # Clone nmrML github repo
 WORKDIR /usr/src
