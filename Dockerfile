@@ -23,12 +23,12 @@ RUN mkdir /usr/local/share/nmrML
 RUN install -m755 bin/converter.jar /usr/local/share/nmrML/
 
 # Add startup script
-ADD nmrmlconv.sh /usr/local/bin
-RUN chmod 755 /usr/local/bin/nmrmlconv.sh
+#ADD nmrmlconv.sh /usr/local/bin
+#RUN chmod 755 /usr/local/bin/nmrmlconv.sh
 
 # Define data directory
 RUN mkdir /data
 WORKDIR /data
 
-ENTRYPOINT [ "/usr/local/bin/nmrmlconv.sh" ]
+#ENTRYPOINT [ "/usr/local/bin/nmrmlconv.sh" ]
 #ENTRYPOINT [ "java", "-jar", "/usr/local/share/nmrML/converter.jar" ]

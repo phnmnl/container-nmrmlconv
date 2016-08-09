@@ -6,14 +6,15 @@
         <container type="docker">phnmnl/nmrmlconv</container>
   </requirements>
   <description>Converts vendor RAW NMR to nmrML.</description>
-  <command>
-    /usr/local/bin/nmrmlconv.sh $venformat $zipfile $infile $outfile
+  <command><![CDATA[
+    unzip -q -d /tmp/galaxy_job $infile;
+    java -jar /usr/local/share/nmrML/converter.jar -l create -b -z -t $venformat -i /tmp/galaxy_job -o $outfile;
+  ]]>
   </command>
   <inputs>
-    <param name="zipfile" type="data" optional="False" label="Input file in zip format to convert" />
-    <param name="infile" type="text" format="" value="BPA_c21_aq_126-BPA25ng/1" optional="False" label="Name of input folder inside the zip file" />
+    <param name="infile" type="data" format="zip" optional="False" label="Input file in zip format to convert" />
     <param name="venformat" type="select" value="Bruker" optional="True" label="Vendor format" help="See below.">
-      <option value="bruker">Bruker</option>
+      <option value="bruker" selected="True">Bruker</option>
       <option value="varian">Varian</option>
       <option value="jeol">Jeol</option>
       <option value="tecmag">TecMag</option>
@@ -29,7 +30,7 @@
     </param>
   </inputs>
   <outputs>
-    <data name="outfile" formal="nmrML" label="nmrML file" />
+    <data name="outfile" type="text" format="nmrML" label="nmrML file" />
   </outputs>
   <help>
 nmrML is an open mark-up language for NMR data. This tool converts RAW vendor NMR data to nmrML format.
