@@ -7,8 +7,9 @@
   </requirements>
   <description>Converts vendor RAW NMR to nmrML.</description>
   <command><![CDATA[
-    unzip -q -d /tmp/galaxy_job $infile;
-    java -jar /usr/local/share/nmrML/converter.jar -l create -b -z -t $venformat -i /tmp/galaxy_job -o $outfile;
+    mkdir -p \$PWD/tmp;
+    unzip -q -d \$PWD/tmp $infile;
+    java -jar /usr/local/share/nmrML/converter.jar -l create -b -z -t $venformatt -i \$PWD/tmp -o $outfile;
   ]]>
   </command>
   <inputs>
