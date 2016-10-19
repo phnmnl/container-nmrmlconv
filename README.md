@@ -55,14 +55,15 @@ Rocca-Serra P, Salek RM, Arita M, Correa E, Dayalan S, Gonzalez-Beltran A, Ebbel
 - nmrML Standards Group <info@nmrml.org>
 
 ## Container Contributors
-- Kristian Peters <kpeters@ipb-halle.de>, IPB-Halle
-- Steffen Neumann <sneumann@ipb-halle.de>, IPB-Halle
+- [Kristian Peters](https://github.com/korseby) (IPB-Halle)
+- [Steffen Neumann](https://github.com/sneumann) (IPB-Halle)
 
 ## Website
 http://nmrml.org
 https://github.com/nmrML/nmrML
 
 ## Usage Instructions
+
 Building the Docker image
 
 `docker build --tag="phnmnl/nmrmlconv:latest" .`
