@@ -19,6 +19,10 @@ nmrML is an open mark-up language for NMR data. It is currently under heavy deve
 - [Kristian Peters](https://github.com/korseby) (IPB-Halle)
 - [Steffen Neumann](https://github.com/sneumann) (IPB-Halle)
 
+## Git Repository
+
+- https://github.com/phnmnl/container-nmrmlconv.git
+
 ## Website
 
 - http://nmrml.org
