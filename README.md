@@ -50,7 +50,7 @@ nmrML is an open mark-up language for NMR data. It is currently under heavy deve
 
 ## Tool Authors 
 
-- nmrML Standards Group <info@nmrml.org>
+- nmrML Standards Group
 
 ## Container Contributors
 
