@@ -62,7 +62,7 @@ nmrML is an open mark-up language for NMR data. It is currently under heavy deve
 - http://nmrml.org
 - https://github.com/nmrML/nmrML
 
-## Usage Instructions
+## Usage Installation
 
 Building the Docker image
 
