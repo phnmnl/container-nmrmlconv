@@ -40,7 +40,7 @@ For screenshots, you should use the following scheme:
 
 ![Logo](nmrML.png)
 
-## Short description
+## Short Description
 
 [nmrML](http://nmrml.org/) is an open mark-up language for NMR data. This project contains files that are needed to use the tools to convert RAW vendor NMR files to nmrML files.
 
