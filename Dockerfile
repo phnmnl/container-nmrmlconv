@@ -1,13 +1,14 @@
+FROM ubuntu:trusty
+
 LABEL software=nmrmlconv
 LABEL software.version=1.0
 LABEL version=0.1
+
 LABEL Description="Convert NMR-RAW vendor files to nmrML."
 
 MAINTAINER PhenoMeNal-H2020 Project <phenomenal-h2020-users@googlegroups.com>
 
 
-
-FROM ubuntu:trusty
 
 # Update, install, clean up
 RUN apt-get -y update &&  apt-get -y install --no-install-recommends build-essential software-properties-common byobu \
