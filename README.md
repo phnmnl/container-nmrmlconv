@@ -1,6 +1,7 @@
-# nmrMLconvert
-
 ![Logo](nmrML.png)
+
+# nmrMLconvert
+Version: 1.1b
 
 ## Short Description
 
