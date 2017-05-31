@@ -19,8 +19,6 @@ curl git subversion vim man unzip wget openjdk-8-jre
 RUN mkdir -p /usr/src/nmrML/tools/Parser_and_Converters/Java/converter/
 WORKDIR /usr/src/nmrML/tools/Parser_and_Converters/Java/converter/
 RUN svn export https://github.com/nmrML/nmrML/trunk/tools/Parser_and_Converters/Java/converter/bin
-RUN pwd
-RUN ls -al bin
 
 # Install nmrML converter
 WORKDIR /usr/src/nmrML/tools/Parser_and_Converters/Java/converter
@@ -33,7 +31,8 @@ RUN install -m755 bin/converter.jar /usr/local/share/nmrML/
 RUN apt-get -y --purge --auto-remove remove subversion git
 RUN apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /var/cache/oracle-jdk7-installer /usr/src/nmr* /tmp/* /var/tmp/*
 
-# Add startup script
+# Add scripts
+ADD runTest1.sh /
 ADD nmrmlconv.sh /usr/local/bin/nmrmlconv.sh
 
 # Define data directory
