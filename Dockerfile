@@ -32,7 +32,7 @@ RUN apt-get -y --purge --auto-remove remove subversion git
 RUN apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /var/cache/oracle-jdk7-installer /usr/src/nmr* /tmp/* /var/tmp/*
 
 # Add scripts
-ADD runTest1.sh /
+ADD runTest1.sh /usr/local/bin/runTest1.sh
 ADD nmrmlconv.sh /usr/local/bin/nmrmlconv.sh
 
 # Define data directory
