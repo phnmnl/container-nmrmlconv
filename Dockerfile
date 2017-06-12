@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 LABEL software=nmrmlconv
 LABEL software.version=1.1b
-LABEL version=0.2
+LABEL version=0.3
 
 LABEL Description="Convert NMR-RAW vendor files to nmrML."
 
