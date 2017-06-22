@@ -6,13 +6,13 @@
   </requirements>
   <description>Converts vendor RAW NMR to nmrML.</description>
   <command><![CDATA[
-    echo $infile;
-    ls -R -al $infile;
-    mkdir -p \$PWD/tmp;
-    unzip -q -d \$PWD/tmp $infile;
-    ls -al \$PWD/tmp;
-    export samplename="ADG10003u_007";
-    java -jar /usr/local/share/nmrML/converter.jar -l create -b -z -t $venformat -a \$samplename -i \$PWD/tmp -o $outfile;
+    echo #{infile};
+    ls -R -al #{infile};
+    #mkdir -p \$PWD/tmp;
+    #unzip -q -d \$PWD/tmp #{infile};
+    #ls -al \$PWD/tmp;
+    #export samplename="ADG10003u_007";
+    #java -jar /usr/local/share/nmrML/converter.jar -l create -b -z -t $venformat -a \$samplename -i \$PWD/tmp -o #{outfile};
   ]]>
   </command>
   <inputs>
