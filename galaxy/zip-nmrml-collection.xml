@@ -6,20 +6,17 @@
   </requirements>
   <description>Create a zip archive of a nmrML collection.</description>
   <command><![CDATA[
-    export IFS=',';
-    echo $infiles;
-    echo $infiles.name;
-    ;
-    for infile in $infiles; do echo \$infile >> /tmp/infiles.txt; done;
-    for infile in $infiles.name; do echo \$infile >> /tmp/infiles.name.txt; done;
+    for infile in `echo $infiles | perl -pe 's/\,/\n/g'`; do echo \$infile >> /tmp/infiles.txt; done;
     export inlength=`cat /tmp/infiles.txt | wc -l`;
     mkdir -p /tmp/dataset;
     for c in `seq 1 \$inlength`; do
         export infile=`cat /tmp/infiles.txt | head -n \$c | tail -n 1`;
-        export cpfile=`cat /tmp/infiles.name.txt | head -n \$c | tail -n 1`;
-        echo "\$cpfile === \$infile";
+        export cpfile=`cat \$infile | grep 'acquisition1D id=' | sed -e 's/.*id\=\"//' | sed -e 's/\".*/\.nmrML/'`;
+        cp -f \$infile /tmp/dataset/\$cpfile;
     done;
-    echo zip -r $outfile `echo $infiles | tr ',' ' '`;
+    cd /tmp/dataset;
+    zip -q -9 /tmp/dataset.zip *;
+    mv -f /tmp/dataset.zip $outfile;
   ]]>
   </command>
   <inputs>

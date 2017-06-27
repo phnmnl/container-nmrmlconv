@@ -6,8 +6,8 @@
   </requirements>
   <description>Converts vendor RAW NMR to nmrML.</description>
   <command><![CDATA[
-    for infile in $infiles; do echo \$infile >> /tmp/infiles.txt; done;
-    for infile in $infiles.name; do echo \$infile >> /tmp/infiles.name.txt; done;
+    for infile in `echo $infiles | perl -pe 's/\,/\n/g'`; do echo \$infile >> /tmp/infiles.txt; done;
+    for infile in `echo $infiles.names | perl -pe 's/\,/\n/g'`; do echo \$infile >> /tmp/infiles.name.txt; done;
     export inlength=`cat /tmp/infiles.txt | wc -l`;
     for c in `seq 1 \$inlength`; do
         export infile=`cat /tmp/infiles.txt | head -n \$c | tail -n 1`;

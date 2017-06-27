@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 LABEL software=nmrmlconv
 LABEL software.version=1.1b
-LABEL version=0.3
+LABEL version=0.4
 
 LABEL Description="Convert NMR-RAW vendor files to nmrML."
 
@@ -11,8 +11,7 @@ MAINTAINER PhenoMeNal-H2020 Project <phenomenal-h2020-users@googlegroups.com>
 
 
 # Update, install, clean up
-RUN apt-get -y update &&  apt-get -y install --no-install-recommends build-essential software-properties-common byobu \
-curl git subversion vim man unzip wget openjdk-8-jre
+RUN apt-get -y update &&  apt-get -y install --no-install-recommends build-essential software-properties-common byobu curl git subversion vim man unzip zip wget perl-base openjdk-8-jre
 
 # Clone nmrML github repo
 # RUN git clone https://github.com/nmrML/nmrML
