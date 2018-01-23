@@ -34,6 +34,7 @@
     <instrumentConfigurationList>
         <instrumentConfiguration id="ID00006">
             <cvParam cvRef="NMRCV" accession="NMR:1400198" name="Bruker NMR instrument"/>
+            <userParam name="Instrument Name" value="spect"/>
             <userParam name="ProbeHead" value="5 mm TXI Z-GRD Z44866/0070"/>
             <softwareRef ref="ID00005"/>
         </instrumentConfiguration>
