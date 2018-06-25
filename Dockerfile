@@ -2,10 +2,10 @@ FROM ubuntu:16.04
 
 LABEL software=nmrmlconv
 LABEL software.version=1.1b
-LABEL version=0.5
+LABEL version=0.6
 LABEL Description="Convert NMR-RAW vendor files to nmrML."
 
-ENV REVISION="6486b3c0d78cfd6c04d5e96236146ba312b2eb2d"
+ENV REVISION="7461af4925e4f3bf33eb24b96684a42f68bb2709"
 
 MAINTAINER PhenoMeNal-H2020 Project <phenomenal-h2020-users@googlegroups.com>
 
