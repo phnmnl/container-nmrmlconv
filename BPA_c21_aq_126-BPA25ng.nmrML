@@ -15,15 +15,15 @@
         <contact id="ID00001" fullname="cecile" email="cecile@INSTR_RMN"/>
     </contactList>
     <sourceFileList>
-        <sourceFile id="ID00002" name="fid" location="file:/data/test/fid" sha1="c64b5bf30dbbea58cfcdd6e99898a3e563a83100">
+        <sourceFile id="ID00002" name="fid" location="file:/tmp/test/fid" sha1="c64b5bf30dbbea58cfcdd6e99898a3e563a83100">
             <cvParam cvRef="NMRCV" accession="NMR:1400320" name="Bruker UXNMR/XWIN-NMR format"/>
             <cvParam cvRef="NMRCV" accession="NMR:1400119" name="FID file"/>
         </sourceFile>
-        <sourceFile id="ID00003" name="pulseprogram" location="file:/data/test/pulseprogram">
+        <sourceFile id="ID00003" name="pulseprogram" location="file:/tmp/test/pulseprogram">
             <cvParam cvRef="NMRCV" accession="NMR:1400320" name="Bruker UXNMR/XWIN-NMR format"/>
             <cvParam cvRef="NMRCV" accession="NMR:1400122" name="pulse sequence file"/>
         </sourceFile>
-        <sourceFile id="ID00004" name="acqus" location="file:/data/test/acqus">
+        <sourceFile id="ID00004" name="acqus" location="file:/tmp/test/acqus">
             <cvParam cvRef="NMRCV" accession="NMR:1400320" name="Bruker UXNMR/XWIN-NMR format"/>
             <cvParam cvRef="NMRCV" accession="NMR:1002006" name="acquisition parameter file"/>
         </sourceFile>
@@ -66,6 +66,7 @@
                     <sweepWidth value="7183.908045977010" unitAccession="UO_0000106" unitName="hertz" unitCvRef="UO"/>
                     <pulseWidth value="12.500000000000" unitAccession="UO_0000029" unitName="microsecond" unitCvRef="UO"/>
                     <irradiationFrequency value="600.132818830000" unitAccession="UO_0000325" unitName="megaHertz" unitCvRef="UO"/>
+                    <irradiationFrequencyOffset value="2818.830000000000" unitAccession="UO_0000325" unitName="megaHertz" unitCvRef="UO"/>
                     <decouplingNucleus cvRef="NMRCV" accession="NMR:1000055" name="off resonance decoupling"/>
                     <samplingStrategy cvRef="NMRCV" accession="NMR:1000349" name="uniform sampling"/>
                 </DirectDimensionParameterSet>
